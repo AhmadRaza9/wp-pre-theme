@@ -1,11 +1,9 @@
 import gulp from "gulp";
-import yargs from "yargs";
+const sass = require("gulp-sass")(require("sass"));
 
-const PRODUCTION = yargs.argv.prod;
-
-export const hello = (done) => {
-  console.log(PRODUCTION);
-  done();
+export const styles = (done) => {
+  return gulp
+    .src("./src/assets/scss/bundle.scss")
+    .pipe(sass().on("error", sass.logError))
+    .pipe(gulp.dest("dist/asset/css"));
 };
-
-export default hello;

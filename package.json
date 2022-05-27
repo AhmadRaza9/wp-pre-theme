@@ -23,7 +23,9 @@
     "@babel/core": "^7.18.2",
     "@babel/preset-env": "^7.18.2",
     "@babel/register": "^7.17.7",
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.52.1"
   },
   "dependencies": {
     "yargs": "^17.5.1"
