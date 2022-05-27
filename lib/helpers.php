@@ -15,8 +15,16 @@ function firsttheme_post_meta()
 
 function firsttheme_read_more_link()
 {
-
     echo '<a href="' . esc_url(get_the_permalink()) . '" title="' . esc_attr(the_title_attribute(['echo' => false])) . '">';
-    echo 'Read More <span class="u-screen-reader-text"> About ' . esc_html(get_the_title()) . '</span></a>';
+    printf(
+        wp_kses(__('Read More <span class="u-screen-reader-text"> About %s </span>', 'firsttheme'),
+            [
+                'span' => [
+                    'class' => [],
+                ],
+            ]
+        ),
+        get_the_title() . '</a>'
+    );
 
 }
