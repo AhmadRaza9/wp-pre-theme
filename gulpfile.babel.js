@@ -12,12 +12,23 @@ import sourcemaps from "gulp-sourcemaps";
 
 const PRODUCTION = yargs.argv.prod;
 
+const paths = {
+  styles: {
+    src: ["./src/assets/scss/bundle.scss", "./src/assets/scss/admin.scss"],
+    dest: "dist/asset/css",
+  },
+};
+
 export const styles = (done) => {
   return gulp
-    .src(["./src/assets/scss/bundle.scss", "./src/assets/scss/admin.scss"])
+    .src(paths.styles.src)
     .pipe(gulpIf(!PRODUCTION, sourcemaps.init()))
     .pipe(sass().on("error", sass.logError))
     .pipe(gulpIf(PRODUCTION, cleanCss({ compatibility: "ie8" })))
     .pipe(gulpIf(!PRODUCTION, sourcemaps.write()))
-    .pipe(gulp.dest("dist/asset/css"));
+    .pipe(gulp.dest(paths.styles.dest));
+};
+
+export const watch = () => {
+  return gulp.watch("src/assets/scss/**/*.scss", styles);
 };
