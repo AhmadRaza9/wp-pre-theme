@@ -42,15 +42,17 @@ export const styles = (done) => {
     .pipe(gulp.dest(paths.styles.dest));
 };
 
-export const watch = () => {
-  return gulp.watch("src/assets/scss/**/*.scss", styles);
-};
-
 export const copy = () => {
   return gulp.src(paths.other.src).pipe(gulp.dest(paths.other.dest));
 };
 
-export const build = gulp.series(clean, styles, copy);
+export const watch = () => {
+  gulp.watch("src/assets/scss/**/*.scss", styles);
+  gulp.watch(paths.other.src, copy);
+};
+
+// export const dev = gulp.series(clean, gulp.parallel(styles, copy), watch);
+export const build = gulp.series(clean, gulp.parallel(styles, copy));
 
 // export const images = () => {
 //   return gulp
