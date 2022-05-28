@@ -7,5 +7,8 @@
     <?php wp_head();?>
 </head>
 <body>
+    <header class="header">
+        <h1>I am From Header</h1>
+    </header>
     <!-- Container Start Here -->
 <div id="main" class="container">
