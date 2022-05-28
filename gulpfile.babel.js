@@ -4,6 +4,7 @@ const sass = require("gulp-sass")(require("sass"));
 import cleanCss from "gulp-clean-css";
 import gulpIf from "gulp-if";
 import sourcemaps from "gulp-sourcemaps";
+import del from "del";
 const PRODUCTION = yargs.argv.prod;
 
 // const imagemin = require("gulp-imagemin");
@@ -27,6 +28,10 @@ const paths = {
   },
 };
 
+export const clean = (done) => {
+  return del(["dist"]);
+};
+
 export const styles = (done) => {
   return gulp
     .src(paths.styles.src)
@@ -44,6 +49,8 @@ export const watch = () => {
 export const copy = () => {
   return gulp.src(paths.other.src).pipe(gulp.dest(paths.other.dest));
 };
+
+export const build = gulp.series(clean, styles, copy);
 
 // export const images = () => {
 //   return gulp
