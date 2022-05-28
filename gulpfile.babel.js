@@ -55,6 +55,7 @@ export const copy = () => {
 
 export const watch = () => {
   gulp.watch("src/assets/scss/**/*.scss", styles);
+  gulp.watch("src/assets/js/**/*.js", scripts);
   gulp.watch(paths.other.src, copy);
 };
 
@@ -95,9 +96,9 @@ export const scripts = (done) => {
   done();
 };
 
-export const build = gulp.series(clean, gulp.parallel(styles, copy));
+export const build = gulp.series(clean, gulp.parallel(styles, scripts, copy));
 
-// export const dev = gulp.series(clean, gulp.parallel(styles, copy), watch);
+// export const dev = gulp.series(clean, gulp.parallel(styles, scripts, copy), watch);
 // export default dev;
 
 // export const images = () => {
