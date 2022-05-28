@@ -14,7 +14,7 @@ const PRODUCTION = yargs.argv.prod;
 
 export const styles = (done) => {
   return gulp
-    .src("./src/assets/scss/bundle.scss")
+    .src(["./src/assets/scss/bundle.scss", "./src/assets/scss/admin.scss"])
     .pipe(gulpIf(!PRODUCTION, sourcemaps.init()))
     .pipe(sass().on("error", sass.logError))
     .pipe(gulpIf(PRODUCTION, cleanCss({ compatibility: "ie8" })))
