@@ -5,6 +5,9 @@ import cleanCss from "gulp-clean-css";
 import gulpIf from "gulp-if";
 import sourcemaps from "gulp-sourcemaps";
 import del from "del";
+// import webpack from "webpack-stream";
+import uglify from "gulp-uglify";
+
 const PRODUCTION = yargs.argv.prod;
 
 // const imagemin = require("gulp-imagemin");
@@ -17,6 +20,10 @@ const paths = {
   images: {
     src: ["./src/assets/images/**/*.{jpg,jpeg,png,svg,gif}"],
     dest: "dist/asset/images",
+  },
+  scripts: {
+    src: "./src/assets/js/bundle.js",
+    dest: "dist/asset/js",
   },
   other: {
     src: [
@@ -51,8 +58,41 @@ export const watch = () => {
   gulp.watch(paths.other.src, copy);
 };
 
-// export const dev = gulp.series(clean, gulp.parallel(styles, copy), watch);
+// export const scripts = () => {
+//   return gulp
+//     .src(paths.scripts.src)
+//     .pipe(
+//       webpack({
+//         module: {
+//           loaders: [
+//             {
+//               test: /\.js$/,
+//               use: {
+//                 loader: "babel-loader",
+//                 options: {
+//                   presets: ["babel-preset-env"],
+//                 },
+//               },
+//             },
+//           ],
+//         },
+//       })
+//     )
+//     .pipe(gulp.dest(paths.scripts.dest));
+// };
+
+export const scripts = (done) => {
+  gulp
+    .src(paths.scripts.src)
+    .pipe(uglify())
+    .pipe(gulp.dest(paths.scripts.dest));
+  done();
+};
+
 export const build = gulp.series(clean, gulp.parallel(styles, copy));
+
+// export const dev = gulp.series(clean, gulp.parallel(styles, copy), watch);
+// export default dev;
 
 // export const images = () => {
 //   return gulp
