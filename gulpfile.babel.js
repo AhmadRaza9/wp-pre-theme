@@ -22,7 +22,7 @@ const paths = {
     dest: "dist/asset/images",
   },
   scripts: {
-    src: "./src/assets/js/bundle.js",
+    src: "./src/assets/js/**/*",
     dest: "dist/asset/js",
   },
   other: {
@@ -76,6 +76,10 @@ export const watch = () => {
 //             },
 //           ],
 //         },
+//         output: {
+//           filename: "bundle.js",
+//         },
+//           devtool: 'inline-source-map'
 //       })
 //     )
 //     .pipe(gulp.dest(paths.scripts.dest));
@@ -84,7 +88,9 @@ export const watch = () => {
 export const scripts = (done) => {
   gulp
     .src(paths.scripts.src)
+    .pipe(gulpIf(PRODUCTION, sourcemaps.init()))
     .pipe(uglify())
+    .pipe(gulpIf(PRODUCTION, sourcemaps.write()))
     .pipe(gulp.dest(paths.scripts.dest));
   done();
 };
