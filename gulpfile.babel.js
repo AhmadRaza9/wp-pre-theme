@@ -17,6 +17,14 @@ const paths = {
     src: ["./src/assets/images/**/*.{jpg,jpeg,png,svg,gif}"],
     dest: "dist/asset/images",
   },
+  other: {
+    src: [
+      "src/assets/**/*",
+      "!src/assets/{images, js, scss}",
+      "!src/assets/{images,js,scss}/**/*",
+    ],
+    dest: "dist/asset",
+  },
 };
 
 export const styles = (done) => {
@@ -33,6 +41,13 @@ export const watch = () => {
   return gulp.watch("src/assets/scss/**/*.scss", styles);
 };
 
-// export const minimages = () => {
-//   return gulp.src(paths.images.src).pipe(imagemin()).pipe(paths.images.dest);
+export const copy = () => {
+  return gulp.src(paths.other.src).pipe(gulp.dest(paths.other.dest));
+};
+
+// export const images = () => {
+//   return gulp
+//     .src(paths.images.src)
+//     .pipe(gulpIf(PRODUCTION, imagemin()))
+//     .pipe(paths.imagesgulp.dest);
 // };
