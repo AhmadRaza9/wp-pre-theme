@@ -7,7 +7,9 @@ import sourcemaps from "gulp-sourcemaps";
 import del from "del";
 // import webpack from "webpack-stream";
 import uglify from "gulp-uglify";
+import browserSync from "browser-sync";
 
+const server = browserSync.create();
 const PRODUCTION = yargs.argv.prod;
 
 // const imagemin = require("gulp-imagemin");
@@ -35,6 +37,18 @@ const paths = {
   },
 };
 
+export const serve = (done) => {
+  server.init({
+    proxy: "http://wp-pre-theme.test/",
+  });
+  done();
+};
+
+export const reload = (done) => {
+  server.reload();
+  done();
+};
+
 export const clean = (done) => {
   return del(["dist"]);
 };
@@ -54,9 +68,9 @@ export const copy = () => {
 };
 
 export const watch = () => {
-  gulp.watch("src/assets/scss/**/*.scss", styles);
-  gulp.watch("src/assets/js/**/*.js", scripts);
-  gulp.watch(paths.other.src, copy);
+  gulp.watch("src/assets/scss/**/*.scss", gulp.series(styles, reload));
+  gulp.watch("src/assets/js/**/*.js", gulp.series(scripts, reload));
+  gulp.watch(paths.other.src, gulp.series(copy, reload));
 };
 
 // export const scripts = () => {
@@ -101,8 +115,13 @@ export const scripts = (done) => {
 
 export const build = gulp.series(clean, gulp.parallel(styles, scripts, copy));
 
-// export const dev = gulp.series(clean, gulp.parallel(styles, scripts, copy), watch);
-// export default dev;
+export const dev = gulp.series(
+  clean,
+  gulp.parallel(styles, scripts, copy),
+  serve,
+  watch
+);
+export default dev;
 
 // export const images = () => {
 //   return gulp
