@@ -80,6 +80,9 @@ export const watch = () => {
 //         output: {
 //           filename: "bundle.js",
 //         },
+//           externals: {
+//              filename: '[name].js'
+//            },
 //           devtool: 'inline-source-map'
 //       })
 //     )
