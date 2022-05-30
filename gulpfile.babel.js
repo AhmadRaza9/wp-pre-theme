@@ -48,7 +48,7 @@ const paths = {
       "!package.json",
       "!package-lock.json",
     ],
-    dest: "packaged",
+    dest: "yourtheme",
   },
 };
 
@@ -144,6 +144,9 @@ export const dev = gulp.series(
   serve,
   watch
 );
+
+export const bundle = gulp.series(build, compress);
+
 export default dev;
 
 // export const images = () => {
