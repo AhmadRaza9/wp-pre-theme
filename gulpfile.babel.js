@@ -8,6 +8,7 @@ import del from "del";
 // import webpack from "webpack-stream";
 import uglify from "gulp-uglify";
 import browserSync from "browser-sync";
+import zip from "gulp-zip";
 
 const server = browserSync.create();
 const PRODUCTION = yargs.argv.prod;
@@ -35,6 +36,20 @@ const paths = {
     ],
     dest: "dist/asset",
   },
+  package: {
+    src: [
+      "**/*",
+      "!node_modules{,/**}",
+      "!packaged{,/**}",
+      "!src{,/**}",
+      "!.babelrc",
+      "!.gitignore",
+      "!gulpfile.babel.js",
+      "!package.json",
+      "!package-lock.json",
+    ],
+    dest: "packaged",
+  },
 };
 
 export const serve = (done) => {
@@ -60,7 +75,8 @@ export const styles = (done) => {
     .pipe(sass().on("error", sass.logError))
     .pipe(gulpIf(PRODUCTION, cleanCss({ compatibility: "ie8" })))
     .pipe(gulpIf(!PRODUCTION, sourcemaps.write()))
-    .pipe(gulp.dest(paths.styles.dest));
+    .pipe(gulp.dest(paths.styles.dest))
+    .pipe(server.stream());
 };
 
 export const copy = () => {
@@ -111,6 +127,13 @@ export const scripts = (done) => {
     .pipe(gulpIf(PRODUCTION, sourcemaps.write()))
     .pipe(gulp.dest(paths.scripts.dest));
   done();
+};
+
+export const compress = () => {
+  return gulp
+    .src(paths.package.src)
+    .pipe(zip("firsttheme.zip"))
+    .pipe(gulp.dest(paths.package.dest));
 };
 
 export const build = gulp.series(clean, gulp.parallel(styles, scripts, copy));
