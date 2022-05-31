@@ -1,6 +1,8 @@
-# wP Pre Theme
+# WP Pre Theme
 
-## Usage of wp theme
+## Usage of wp pre theme
+
+- Install Node Dependices
 
 <code> npm run build </code>
 
