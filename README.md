@@ -1,15 +1,15 @@
-= wP Pre Theme
+# wP Pre Theme
 
-Usage of wp theme
+## Usage of wp theme
 
-<code>npm run build</code>
+<code> npm run build </code>
 
 - to clean unused files, render styles, scripts and copy files
 
-gulp dev
+<code> gulp dev </code>
 
 - to clean unused files, render styles, scripts and copy files, and open liveserver and watch changes.
 
-gulp bundle
+<code> gulp bundle </code>
 
 - run build command and compress used files in new folder.
