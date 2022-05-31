@@ -20,7 +20,7 @@
     <?php do_action('_themename_after_pagination');?>
  </div>
 <?php } else {?>
-    <p> <?php esc_html_e('Sorry, no posts matched you criteria.', '_themename');?> </p>
+    <p> <?php echo apply_filters('_themename_no_posts_text', esc_html__('Sorry, no posts matched you criteria.', '_themename')); ?> </p>
 <?php }?>
 
 
