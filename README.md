@@ -19,3 +19,11 @@
 <code> gulp bundle </code>
 
 - run build command and compress used files in new folder.
+
+### Custom Hooks
+
+- \_themename_after_pagination
+- \_themename_before_header
+- \_themename_after_header
+- \_themename_before_footer
+- \_themename_after_footer
