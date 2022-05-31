@@ -1,23 +1,23 @@
 <?php
-function firsttheme_post_meta()
+function _themename_post_meta()
 {
     printf(
-        esc_html__('Posted on %s ', 'firsttheme'),
+        esc_html__('Posted on %s ', '_themename'),
         '<a href="' . esc_url(get_permalink()) . '"><time datetime="' . esc_attr(get_the_date('c')) . '">' . esc_html(get_the_date('l, F j, Y')) . '</time></a>'
     );
 
     printf(
-        esc_html__('By %s ', 'firsttheme'),
+        esc_html__('By %s ', '_themename'),
         '<a href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . "</a>"
     );
 
 }
 
-function firsttheme_read_more_link()
+function _themename_read_more_link()
 {
     echo '<a href="' . esc_url(get_the_permalink()) . '" title="' . esc_attr(the_title_attribute(['echo' => false])) . '">';
     printf(
-        wp_kses(__('Read More <span class="u-screen-reader-text"> About %s </span>', 'firsttheme'),
+        wp_kses(__('Read More <span class="u-screen-reader-text"> About %s </span>', '_themename'),
             [
                 'span' => [
                     'class' => [],
