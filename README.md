@@ -2,7 +2,7 @@
 
 Usage of wp theme
 
-npm run build
+<code>npm run build</code>
 
 - to clean unused files, render styles, scripts and copy files
 
