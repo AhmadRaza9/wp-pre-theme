@@ -1,19 +1,25 @@
 <?php do_action('_themename_before_header');?>
 <?php get_header();?>
 <?php do_action('_themename_after_header');?>
+<div class="o-container u-margin-bottom-40">
+<div class="o-row">
+    <div class="o-row__column o-row__column--span-12 o-row__column--span-8@medium">
+        <main role="main">
 <?php if (have_posts()) {?>
  <?php while (have_posts()) {?>
     <?php the_post();?>
-    <h2>
+    <article <?php post_class("c-post u-margin-bottom-20");?>>
+    <h2 class="c-post__title">
         <a href="<?php the_permalink();?>" title="<?php the_title_attribute();?>"><?php the_title();?></a>
     </h2>
-    <div class="meta-info">
+    <div class="meta-info c-post__meta">
         <?php _themename_post_meta();?>
     </div>
-    <div class="content">
+    <div class="content c-post__excerpt">
         <?php the_excerpt();?>
         <?php _themename_read_more_link();?>
     </div>
+    </article>
  <?php }?>
  <div class="pagination">
     <?php the_posts_pagination();?>
@@ -22,7 +28,13 @@
 <?php } else {?>
     <p> <?php echo apply_filters('_themename_no_posts_text', esc_html__('Sorry, no posts matched you criteria.', '_themename')); ?> </p>
 <?php }?>
-
+        </main>
+        </div>
+        <div class="o-row__column o-row__column--span-12 o-row__column--span-8@medium">
+        <?php get_sidebar();?>
+    </div>
+    </div>
+</div>
 
 <?php do_action('_themename_before_footer');?>
 <?php get_footer();?>
