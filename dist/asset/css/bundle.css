@@ -1,1 +1,14 @@
-body .header{background-color:#000;color:#fff;max-width:1240px;margin:0 auto}
+body .header {
+  background-color: #000;
+  color: #fff;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+body .footer {
+  background-color: #000;
+  color: #fff;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvaGVhZGVyLnNjc3MiLCJjb21wb25lbnRzL2NvbmZpZy5zY3NzIiwiY29tcG9uZW50cy9mb290ZXIuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDRTtFQUNFLGtCQ0RZO0VERVosT0NIVTtFRElWO0VBQ0E7OztBRUpGO0VBQ0Usa0JERFk7RUNFWixPREhVO0VDSVY7RUFDQSIsImZpbGUiOiJidW5kbGUuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiYm9keSB7XHJcbiAgLmhlYWRlciB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAkcHJpbWFyeS1jb2xvcjtcclxuICAgIGNvbG9yOiAkd2hpdGUtY29sb3I7XHJcbiAgICBtYXgtd2lkdGg6IDEyNDBweDtcclxuICAgIG1hcmdpbjogMCBhdXRvO1xyXG4gIH1cclxufVxyXG4iLCIkd2hpdGUtY29sb3I6ICNmZmY7XHJcbiRwcmltYXJ5LWNvbG9yOiAjMDAwO1xyXG4iLCJib2R5IHtcclxuICAuZm9vdGVyIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICRwcmltYXJ5LWNvbG9yO1xyXG4gICAgY29sb3I6ICR3aGl0ZS1jb2xvcjtcclxuICAgIG1heC13aWR0aDogMTI0MHB4O1xyXG4gICAgbWFyZ2luOiAwIGF1dG87XHJcbiAgfVxyXG59XHJcbiJdfQ== */

@@ -1,4 +1,6 @@
+<?php do_action('_themename_before_header');?>
 <?php get_header();?>
+<?php do_action('_themename_after_header');?>
 <?php if (have_posts()) {?>
  <?php while (have_posts()) {?>
     <?php the_post();?>
@@ -15,25 +17,13 @@
  <?php }?>
  <div class="pagination">
     <?php the_posts_pagination();?>
+    <?php do_action('_themename_after_pagination');?>
  </div>
 <?php } else {?>
     <p> <?php esc_html_e('Sorry, no posts matched you criteria.', '_themename');?> </p>
 <?php }?>
 
-<?php
 
-$comments = 1;
-
-printf(_n('This post have %s comment', 'This post have %s comments', 'This post have %s comments', $comments, '_themename'), $comments);
-echo "<br/>";
-
-$city = "Pakistan";
-
-echo esc_html__('Your city is ', '_themename') . $city;
-echo "<br/>";
-
-printf(esc_html__('Your city is %s ', '_themename'), $city);
-?>
-
-
+<?php do_action('_themename_before_footer');?>
 <?php get_footer();?>
+<?php do_action('_themename_after_footer');

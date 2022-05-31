@@ -4,6 +4,10 @@
 
 - Install Node Dependices
 
+<code>npm run start</code>
+
+- to generate your theme
+
 <code> npm run build </code>
 
 - to clean unused files, render styles, scripts and copy files

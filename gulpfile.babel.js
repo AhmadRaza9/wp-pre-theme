@@ -150,7 +150,7 @@ export const dev = gulp.series(
 
 export const bundle = gulp.series(build, compress);
 
-export default dev;
+export default bundle;
 
 // export const images = () => {
 //   return gulp
