@@ -32,7 +32,7 @@ const paths = {
   },
   other: {
     src: [
-      "src/assets/**/*",
+      "src/assets/{js, scss}/**/*",
       "!src/assets/{images, js, scss}",
       "!src/assets/{images,js,scss}/**/*",
     ],
