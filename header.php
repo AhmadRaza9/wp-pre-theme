@@ -7,9 +7,16 @@
     <?php wp_head();?>
 </head>
 <body <?php body_class();?>>
-    <header class="header">
-        <div class="o-container">
-            <h1>I am From Header</h1>
+    <header class="header u-margin-bottom-40" role="banner">
+        <div class="c-header">
+            <div class="o-container u-flex u-align-justify u-align-middle">
+                <div class="c-header__logo">
+                    <a href="<?php echo esc_url(home_url('/')); ?>" class="c-heder__blogname">
+                        <?php esc_html__(bloginfo('name'));?>
+                    </a>
+                </div>
+                <?php get_search_form(true);?>
+            </div>
         </div>
     </header>
     <!-- Container Start Here -->
