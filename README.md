@@ -6,11 +6,11 @@
 
 <code>npm run start</code>
 
-- to generate your theme
+- to generate your theme.
 
 <code> npm run build </code>
 
-- to clean unused files, render styles, scripts and copy files
+- to clean unused files, render styles, scripts and copy files.
 
 <code> gulp dev </code>
 
@@ -27,3 +27,8 @@
 - \_themename_after_header
 - \_themename_before_footer
 - \_themename_after_footer
+
+### For Loop
+
+- Create loop.php in child theme to override default loop.
+- Create loop-index.php and loop-archive.php to override loop separately.

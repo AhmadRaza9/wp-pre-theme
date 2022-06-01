@@ -8,7 +8,9 @@
 </head>
 <body <?php body_class();?>>
     <header class="header">
-        <h1>I am From Header</h1>
+        <div class="o-container">
+            <h1>I am From Header</h1>
+        </div>
     </header>
     <!-- Container Start Here -->
 <div id="main" class="container">
