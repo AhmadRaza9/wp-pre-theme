@@ -7,6 +7,7 @@
     <?php wp_head();?>
 </head>
 <body <?php body_class();?>>
+    <a class="u-skip-link" href="#main"><?php esc_attr_e('Skip to content', '_themename');?></a>
     <header class="header u-margin-bottom-40" role="banner">
         <div class="c-header">
             <div class="o-container u-flex u-align-justify u-align-middle">
