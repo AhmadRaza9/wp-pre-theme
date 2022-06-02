@@ -14,10 +14,11 @@ function _themename_customize_register($wp_customize)
     ));
 
     $wp_customize->selective_refresh->add_partial('_themename_footer_partial', array(
-        'settings' => array('_themename_footer_partial'),
-        'selector' => '.c-site-info',
+        'settings' => array('_themename_site_info', '_themename_footer_bg', '_themename_footer_info_bg'),
+        'selector' => '#footer',
         'container_inclusive' => true,
         'render_callback' => function () {
+            get_template_part('template-parts/footer/widgets');
             get_template_part('template-parts/footer/info');
         },
     ));
@@ -27,6 +28,7 @@ function _themename_customize_register($wp_customize)
         'description' => esc_html__('You can change footer options from here.', '_themename'),
     ));
 
+    // add site info
     $wp_customize->add_setting('_themename_site_info', array(
         'default' => '',
         'sanitize_callback' => '_themename_sanitize_site_info',
@@ -37,9 +39,53 @@ function _themename_customize_register($wp_customize)
         'label' => esc_html__('Site Info', '_themename'),
         'section' => '_themename_footer_options',
     ));
+
+    // add color for footer bg
+    $wp_customize->add_setting('_themename_footer_bg', array(
+        'default' => 'dark',
+        'sanitize_callback' => '_themename_sanitize_footer_bg',
+        'transport' => 'postMessage',
+    ));
+
+    $wp_customize->add_control('_themename_footer_bg', array(
+        'type' => 'select',
+        'label' => esc_html__('Footer Background Color', '_themename'),
+        'choices' => array(
+            'light' => esc_html__('Light', '_themename'),
+            'dark' => esc_html__('Dark', '_themename'),
+        ),
+        'section' => '_themename_footer_options',
+    ));
+
+    // add color for site info bg
+    $wp_customize->add_setting('_themename_footer_info_bg', array(
+        'default' => 'dark',
+        'sanitize_callback' => '_themename_sanitize_footer_bg',
+        'transport' => 'postMessage',
+    ));
+
+    $wp_customize->add_control('_themename_footer_info_bg', array(
+        'type' => 'select',
+        'label' => esc_html__('Site Info Background Color', '_themename'),
+        'choices' => array(
+            'light' => esc_html__('Light', '_themename'),
+            'dark' => esc_html__('Dark', '_themename'),
+        ),
+        'section' => '_themename_footer_options',
+    ));
+
 }
 
 add_action('customize_register', '_themename_customize_register', 10, 1);
+
+function _themename_sanitize_footer_bg($input)
+{
+    $valid = array('light', 'dark');
+    if (in_array($input, $valid, true)) {
+        return $input;
+    }
+    return 'dark';
+}
 
 function _themename_sanitize_site_info($input)
 {
