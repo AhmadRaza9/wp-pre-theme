@@ -23,6 +23,7 @@ function _themename_customize_register($wp_customize)
         },
     ));
 
+    // add footer options section
     $wp_customize->add_section('_themename_footer_options', array(
         'title' => esc_html__('Footer Options', '_themename'),
         'description' => esc_html__('You can change footer options from here.', '_themename'),
@@ -88,9 +89,28 @@ function _themename_customize_register($wp_customize)
         'section' => '_themename_footer_options',
     ));
 
+    // add general theme option section
+
+    $wp_customize->add_section('_themename_general_options', array(
+        'title' => esc_html__('General Options', '_themename'),
+        'description' => esc_html__('You can change general options from here.', '_themename'),
+    ));
+
+    $wp_customize->add_setting('_themename_accent_color', array(
+        'default' => '#20ddae',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, '_themename_accent_color', array(
+        'label' => __('Accent Color', '_themename'),
+        'section' => '_themename_general_options',
+    )));
+
 }
 
 add_action('customize_register', '_themename_customize_register', 10, 1);
+
+/// Sanitization Functions
 
 function _themename_validate_footer_layout($validity, $value)
 {

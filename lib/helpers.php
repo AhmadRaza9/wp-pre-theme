@@ -1,4 +1,5 @@
 <?php
+
 if (!function_exists('_themename_post_meta')) {
     function _themename_post_meta()
     {
@@ -16,6 +17,7 @@ if (!function_exists('_themename_post_meta')) {
 }
 function _themename_read_more_link()
 {
+
     echo '<a class="c-post__readmore" href="' . esc_url(get_the_permalink()) . '" title="' . esc_attr(the_title_attribute(['echo' => false])) . '">';
     printf(
         wp_kses(__('Read More <span class="u-screen-reader-text"> About %s </span>', '_themename'),
