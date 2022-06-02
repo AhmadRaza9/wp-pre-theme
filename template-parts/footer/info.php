@@ -3,7 +3,7 @@
     <div class="o-container">
         <div class="o-row-simple">
             <div class="o-row__column o-row__column--span-12 c-site-info__text">
-                All Right Reserved
+               <?php echo get_theme_mod('_themename_site_info'); ?>
             </div>
         </div>
     </div>
