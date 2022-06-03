@@ -11,5 +11,10 @@
         <?php _themename_read_more_link();?>
         <?php _themename_BR();?>
         <?php echo _themename_delete_post(); ?>
+        <?php _themename_BR();?>
+        <?php $author = get_post_meta(get_the_ID(), 'author');?>
+        <?php if (!empty(get_post_meta(get_the_ID(), 'author'))): ?>
+            <?php echo "Author: " . $author[0] . ""; ?>
+        <?php endif;?>
     </div>
     </article>
