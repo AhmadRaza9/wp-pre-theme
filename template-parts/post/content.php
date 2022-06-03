@@ -9,5 +9,7 @@
     <div class="content c-post__excerpt">
         <?php the_excerpt();?>
         <?php _themename_read_more_link();?>
+        <?php _themename_BR();?>
+        <?php echo _themename_delete_post(); ?>
     </div>
     </article>
