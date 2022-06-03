@@ -10,13 +10,16 @@ require_once "lib/navigation.php";
 function _themename_handle_delete_post()
 {
     if (isset($_GET['action']) && $_GET['action'] === '_themename_delete_post') {
+        if (!isset($_GET['nonce']) || !wp_verify_nonce($_GET['nonce'], '_themename_delete_post_' . $_GET['post'])) {
+            return;
+        }
         $post_id = isset($_GET['post']) ? $_GET['post'] : null;
         $post = get_post((int) $post_id);
         if (empty($post)) {
             return;
         }
         if (!current_user_can('delete_posts', $post_id)) {
-            echo "<script>alert('Subscriber cannot delete post.')</script>";
+            echo "<script>alert('Cannot delete this post.')</script>";
             return;
         }
         wp_trash_post($post_id);
