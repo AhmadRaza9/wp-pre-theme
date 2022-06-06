@@ -23,18 +23,18 @@ function _themename_customize_register($wp_customize)
         },
     ));
 
-    // add footer options section
+    //  ==================== add footer options section =================
     $wp_customize->add_section('_themename_footer_options', array(
         'title' => esc_html__('Footer Options', '_themename'),
         'description' => esc_html__('You can change footer options from here.', '_themename'),
     ));
 
-    // add site info
     $wp_customize->add_setting('_themename_site_info', array(
         'default' => '',
         'sanitize_callback' => '_themename_sanitize_site_info',
         'transport' => 'postMessage',
     ));
+
     $wp_customize->add_control('_themename_site_info', array(
         'type' => 'text',
         'label' => esc_html__('Site Info', '_themename'),
@@ -89,7 +89,9 @@ function _themename_customize_register($wp_customize)
         'section' => '_themename_footer_options',
     ));
 
-    // add general theme option section
+    //  ==================== add footer options section =================
+
+    //  ==================== add general theme option section =================
 
     $wp_customize->add_section('_themename_general_options', array(
         'title' => esc_html__('General Options', '_themename'),
@@ -107,12 +109,31 @@ function _themename_customize_register($wp_customize)
         'section' => '_themename_general_options',
     )));
 
+    //  ==================== add general theme option section =================
+
+    //  ==================== add single post option section =================
+
+    $wp_customize->add_section('_themename_single_post_options', array(
+        'title' => esc_html__('Single Post Options', '_themename'),
+        'description' => esc_html__('You can change single post option from here.', '_themename'),
+    ));
+
+    $wp_customize->add_setting('_themename_post_author', array(
+        'default' => true,
+        'sanitize_callback' => '_themename_sanitize_checkbox',
+    ));
+
+    $wp_customize->add_control('_themename_post_author', array(
+        'type' => 'checkbox',
+        'label' => __('Show Author under single post', '_themename'),
+        'section' => '_themename_single_post_options',
+    ));
+
 }
 
 add_action('customize_register', '_themename_customize_register', 10, 1);
 
 /// Sanitization Functions
-
 function _themename_validate_footer_layout($validity, $value)
 {
     if (!preg_match('/^([1-9]|1[012])(,([1-9]|1[012]))*$/', $value)) {
@@ -137,4 +158,9 @@ function _themename_sanitize_site_info($input)
         'title' => array(),
     ));
     return wp_kses($input, $allowed);
+}
+
+function _themename_sanitize_checkbox($checked)
+{
+    return (isset($checked) && $checked === true) ? true : false;
 }

@@ -1,3 +1,7 @@
+<?php $show_author = get_theme_mod('_themename_post_author', true);?>
+
+<?php if ($show_author === true): ?>
+
 <div class="c-post-author u-margin-bottom-20">
     <h2 class="u-screen-reader-text"><?php esc_attr_e('About The Author', '_themename');?></h2>
     <?php
@@ -34,3 +38,5 @@ $author_website = get_the_author_meta('user_url');
     <?php endif;?>
 </div>
 </div>
+
+<?php endif;?>
