@@ -116,6 +116,8 @@ function _themename_customize_register($wp_customize)
     $wp_customize->add_section('_themename_single_post_options', array(
         'title' => esc_html__('Single Post Options', '_themename'),
         'description' => esc_html__('You can change single post option from here.', '_themename'),
+        'transport' => 'postMessage',
+        // 'active_callback' => '_themename_show_single_blog_section',
     ));
 
     $wp_customize->add_setting('_themename_post_author', array(
@@ -128,6 +130,8 @@ function _themename_customize_register($wp_customize)
         'label' => __('Show Author under single post', '_themename'),
         'section' => '_themename_single_post_options',
     ));
+
+    //  ==================== add single post option section =================
 
 }
 
@@ -163,4 +167,10 @@ function _themename_sanitize_site_info($input)
 function _themename_sanitize_checkbox($checked)
 {
     return (isset($checked) && $checked === true) ? true : false;
+}
+
+function _themename_show_single_blog_section()
+{
+    global $post;
+    return is_single() && $post->post_type === 'post';
 }
