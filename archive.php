@@ -6,7 +6,6 @@
         <div class="o-row__column o-row__column--span-12">
             <header>
                 <?php the_archive_title('<h1>', '<h1>');?>
-                <?php the_archive_description('<p>', '</p>');?>
             </header>
         </div>
         <div class="o-row__column o-row__column--span-12 o-row__column--span-8@medium" style="grid-column: 1;">

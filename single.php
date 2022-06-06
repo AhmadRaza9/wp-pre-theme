@@ -10,7 +10,7 @@ $layout = _themenme_meta(get_the_ID(), '_newtheme_post_layout', 'full');
 $sidebar = is_active_sidebar('primary-sidebar');
 
 if ($layout === 'sidebar' && !$sidebar) {
-    $layout = 'full';
+    $layout .= 'full';
 }
 
 ?>
