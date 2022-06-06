@@ -48,3 +48,12 @@ function _themename_BR()
 {
     echo "<br/>";
 }
+
+function _themenme_meta($id, $key, $default)
+{
+    $value = get_post_meta($id, $key, true);
+    if (!$value) {
+        return $default;
+    }
+    return $value;
+}
