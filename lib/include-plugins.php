@@ -63,7 +63,7 @@ function _themename_register_required_plugins()
         array(
             'name' => 'Custom Metaboxes',
             'slug' => 'custom-metaboxes',
-            'source' => get_template_directory() . '/lib/plugins/custom-metaboxes.zip',
+            'source' => get_template_directory() . '/lib/plugins/newtheme-newtheme.zip',
             'required' => true,
             'version' => '1.0.0',
             'force_activation' => false,

@@ -34,6 +34,10 @@ const paths = {
     ],
     dest: "dist/asset/js",
   },
+  plugins: {
+    src: ["../../plugins/metaboxes-master/yourplugin/*"],
+    dest: ["lib/plugins"],
+  },
   other: {
     src: [
       "src/assets/{js, scss}/**/*",
@@ -89,6 +93,10 @@ export const copy = () => {
   return gulp.src(paths.other.src).pipe(gulp.dest(paths.other.dest));
 };
 
+export const copyPlugins = () => {
+  return gulp.src(paths.plugins.src).pipe(gulp.dest(paths.plugins.dest));
+};
+
 export const watch = () => {
   gulp.watch("src/assets/scss/**/*.scss", gulp.series(styles, reload));
   gulp.watch("src/assets/js/**/*.js", gulp.series(scripts, reload));
@@ -136,17 +144,23 @@ export const scripts = (done) => {
 };
 
 export const compress = () => {
-  return gulp
-    .src(paths.package.src)
-    .pipe(
-      gulpif((file) => file.relative.split(".").pop() !== "zip"),
-      replace("_themename", info.name)
-    )
-    .pipe(zip(`${info.name}.zip`))
-    .pipe(gulp.dest(paths.package.dest));
+  return (
+    gulp
+      .src(paths.package.src)
+      // .pipe(
+      //   gulpIf((file) => file.relative.split(".").pop() !== "zip"),
+      //   replace("_themename", info.name)
+      // )
+      .pipe(zip(`${info.name}.zip`))
+      .pipe(gulp.dest(paths.package.dest))
+  );
 };
 
-export const build = gulp.series(clean, gulp.parallel(styles, scripts, copy));
+export const build = gulp.series(
+  clean,
+  gulp.parallel(styles, scripts, copy),
+  copyPlugins
+);
 
 export const dev = gulp.series(
   clean,
