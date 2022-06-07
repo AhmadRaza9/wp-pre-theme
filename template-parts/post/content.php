@@ -39,6 +39,7 @@
         <?php if (is_single()): ?>
             <div class="content c-post__content">
                 <?php the_content();?>
+                <?php wp_link_pages();?>
             </div>
         <?php else: ?>
             <div class="content c-post__excerpt">
