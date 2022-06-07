@@ -32,4 +32,4 @@
         </div>
     </header>
     <!-- Container Start Here -->
-<div id="main" class="container">
+<div id="main" class="container <?php echo (is_404()) ? "container-404" : ''; ?>">
