@@ -27,6 +27,7 @@ if ($layout === 'sidebar' && !$sidebar) {
             <?php if (get_theme_mod('_themename_post_author', true)): ?>
             <?php get_template_part("template-parts/single/author");?>
             <?php endif;?>
+            <?php get_template_part('template-parts/single/navigation');?>
             <?php }?>
             <?php } else {?>
             <?php get_template_part("template-parts/post/content", "none");?>
