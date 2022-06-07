@@ -24,7 +24,9 @@ printf(
         <ul class="c-comments__list">
             <?php wp_list_comments(array(
     "avatar_size" => 100,
-));?>
+    'callback' => '_themename_comment_callback',
+));
+?>
         </ul>
         <?php the_comments_pagination();?>
     <?php endif;?>
