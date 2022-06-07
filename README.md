@@ -35,6 +35,10 @@
 - \_themename_after_author_header
 - \_themename_before_author_footer
 - \_themename_after_author_footer
+- \_themename_page_before_header
+- \_themename_page_after_header
+- \_themename_page_before_footer
+- \_themename_page_after_footer
 
 ### For Loop
 
