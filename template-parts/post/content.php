@@ -46,13 +46,11 @@
                 <?php the_excerpt();?>
             </div>
         <?php endif;?>
-        <?php if (is_single()): ?>
+        <?php if (!is_single()): ?>
             <footer class="c-post__footer">
-
+                <?php if (!is_single()) {_themename_read_more_link();}?>
+                <p><a href="<?php echo get_comments_link(); ?>">See Comments</a></p>
             </footer>
-        <?php else: ?>
-
         <?php endif;?>
-        <?php if (!is_single()) {_themename_read_more_link();}?>
      </div>
 </article>
