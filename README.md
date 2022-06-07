@@ -31,6 +31,10 @@
 - \_themename_single_post_after_header
 - \_themename_single_post_before_footer
 - \_themename_single_post_after_footer
+- \_themename_before_author_header
+- \_themename_after_author_header
+- \_themename_before_author_footer
+- \_themename_after_author_footer
 
 ### For Loop
 
