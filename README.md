@@ -40,6 +40,10 @@
 - \_themename_page_before_footer
 - \_themename_page_after_footer
 
+### Shortcode
+
+- [\_themename_icon_button color="#f03" text="Read More" icon="your icon name"][/_themename_icon_button]
+
 ### For Loop
 
 - Create loop.php in child theme to override default loop.

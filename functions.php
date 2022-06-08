@@ -35,14 +35,16 @@ add_action('init', '_themename_handle_delete_post');
 
 // Register Shortcode
 
-function _themename_button($atts)
+function themename_icon_button($atts = [], $content = null, $tag = '')
 {
-    extract(shortcode_atts([
+    $atts = shortcode_atts([
         'color' => 'red',
-        'text' => 'Button',
-        'icon' => '',
-    ], $atts));
-    return '<button style="background-color:' . esc_attr($atts['color']) . '">' . esc_html($atts['text']) . ' <i class="' . esc_attr($atts['icon']) . '" aria-hidden="true"></i></button>';
+        'text' => 'Read More',
+        'icon' => 'fas fa-book-reader',
+    ], $atts, $tag);
+    var_dump($atts);
+    return '<button style="background-color:' . esc_attr($atts['color']) . '">' . $atts['text']
+    . ' <i class="' . esc_attr($atts['icon']) . '" aria-hidden="true"></i></button>';
 }
 
-add_shortcode('_themename_button', '_themename_button');
+add_shortcode('themename_icon_button', 'themename_icon_button');
