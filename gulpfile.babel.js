@@ -39,7 +39,7 @@ const paths = {
     dest: "dist/asset/js",
   },
   plugins: {
-    src: ["../../plugins/metaboxes-master/yourplugin/*"],
+    src: ["../../plugins/firsttheme-shortcodes/youplugin/*"],
     dest: ["lib/plugins"],
   },
   other: {
