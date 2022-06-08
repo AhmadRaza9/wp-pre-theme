@@ -70,9 +70,9 @@ function _themename_register_required_plugins()
             'force_deactivation' => false,
         ),
         array(
-            'name' => 'themename shortcodes',
-            'slug' => 'themename-shortcodes',
-            'source' => get_template_directory() . '/lib/plugins/themename-shortcodes.zip',
+            'name' => 'Pre shortcodes',
+            'slug' => 'pre-shortcodes',
+            'source' => get_template_directory() . '/lib/plugins/theme-btn-shortcode.zip',
             'required' => false,
             'version' => '1.0.0',
             'force_activation' => false,
