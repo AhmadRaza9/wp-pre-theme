@@ -63,8 +63,8 @@ function _themename_register_required_plugins()
         array(
             'name' => 'Custom Metaboxes',
             'slug' => 'custom-metaboxes',
-            'source' => get_template_directory() . '/lib/plugins/newtheme-newtheme.zip',
-            'required' => true,
+            'source' => get_template_directory() . '/lib/plugins/custom-metaboxes.zip',
+            'required' => false,
             'version' => '1.0.0',
             'force_activation' => false,
             'force_deactivation' => false,
@@ -72,8 +72,8 @@ function _themename_register_required_plugins()
         array(
             'name' => '_themename shortcodes',
             'slug' => '_themename-shortcodes',
-            'source' => get_template_directory() . '/lib/plugins/firsttheme-shortcodes.zip',
-            'required' => true,
+            'source' => get_template_directory() . '/lib/plugins/_themename-shortcodes.zip',
+            'required' => false,
             'version' => '1.0.0',
             'force_activation' => false,
             'force_deactivation' => false,
