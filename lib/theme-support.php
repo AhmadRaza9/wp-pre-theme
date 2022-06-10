@@ -25,6 +25,7 @@ function _themename_theme_support()
         'gallery',
         'audio',
     ));
+    add_image_size('_themename-blog-image', 1200, 500, true);
 
 }
 
