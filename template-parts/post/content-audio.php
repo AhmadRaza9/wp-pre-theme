@@ -1,11 +1,11 @@
 <?php
 $content = apply_filters('the_content', get_the_content());
-$videos = get_media_embedded_in_content($content, array('video', 'object', 'embed', 'iframe'));
+$audios = get_media_embedded_in_content($content, array('audio', 'iframe'));
 
 ?>
 <article <?php post_class("c-post u-margin-bottom-20");?>>
     <div class="c-post__inner">
-        <?php if (has_post_thumbnail() || empty($videos) || is_single()): ?>
+        <?php if (has_post_thumbnail() || empty($audios) || is_single()): ?>
             <div class="c-post__thumbnail">
                 <?php the_post_thumbnail('large');?>
             </div>
@@ -21,15 +21,9 @@ $videos = get_media_embedded_in_content($content, array('video', 'object', 'embe
                 <?php the_excerpt();?>
             </div>
         <?php endif;?>
-        <?php if (!is_single() && !empty($videos)): ?>
-            <div class="c-post__video">
-                <?php if (strpos($videos[0], '<iframe') !== false): ?>
-                    <div class="u-responsive-video">
-                <?php endif;?>
-                    <?php echo $videos[0]; ?>
-                <?php if (strpos($videos[0], '<iframe') !== false): ?>
-                    </div>
-                <?php endif;?>
+        <?php if (!is_single() && !empty($audios)): ?>
+            <div class="c-post__audio">
+                    <?php echo $audios[0]; ?>
             </div>
         <?php endif;?>
         <?php if (!is_single()): ?>
