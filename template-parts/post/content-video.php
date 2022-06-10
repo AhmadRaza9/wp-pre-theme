@@ -24,8 +24,13 @@ $videos = get_media_embedded_in_content($content, array('video', 'object', 'embe
         <?php endif;?>
         <?php if (!is_single() && !empty($videos)): ?>
             <div class="c-post__video">
-                <?php var_dump(strpos($videos[0], '<iframe'))?>
-                <?php echo $videos[0]; ?>
+                <?php if (strpos($videos[0], '<iframe') !== false): ?>
+                    <div class="u-responsive-video">
+                <?php endif;?>
+                    <?php echo $videos[0]; ?>
+                <?php if (strpos($videos[0], '<iframe') !== false): ?>
+                    </div>
+                <?php endif;?>
             </div>
         <?php endif;?>
         <?php if (!is_single()): ?>
