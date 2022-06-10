@@ -9,6 +9,14 @@ require_once "lib/navigation.php";
 require_once "lib/include-plugins.php";
 require_once "lib/comment-callback.php";
 
+if (!isset($content_width)) {
+    global $content_width;
+    var_dump($content_width);
+    $content_width = 800;
+    var_dump($content_width);
+
+}
+
 function _themename_handle_delete_post()
 {
     if (isset($_GET['action']) && $_GET['action'] === '_themename_delete_post') {
