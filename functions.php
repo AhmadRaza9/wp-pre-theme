@@ -10,12 +10,26 @@ require_once "lib/include-plugins.php";
 require_once "lib/comment-callback.php";
 
 if (!isset($content_width)) {
-    global $content_width;
-    var_dump($content_width);
     $content_width = 800;
-    var_dump($content_width);
+}
+
+function _themename_content_width()
+{
+    global $content_width;
+    global $post;
+
+    if (is_single() && $post->post_type === 'post') {
+        $layout = _themenme_meta($post->ID, '_newtheme_post_layout', 'full');
+        $sidebar = is_active_sidebar('primary-sidebar');
+        if ($layout === 'sidebar' && !$sidebar) {
+            $layout = 'full';
+        }
+        $content_width = $layout === 'full' ? 800 : 738;
+    }
 
 }
+
+add_action('template_redirect', '_themename_content_width');
 
 function _themename_handle_delete_post()
 {
