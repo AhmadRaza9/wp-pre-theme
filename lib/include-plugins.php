@@ -78,6 +78,15 @@ function _themename_register_required_plugins()
             'force_activation' => false,
             'force_deactivation' => false,
         ),
+        array(
+            'name' => 'Pre Post Type',
+            'slug' => 'pre-post-type',
+            'source' => get_template_directory() . '/lib/plugins/pre-post-types.zip',
+            'required' => false,
+            'version' => '1.0.0',
+            'force_activation' => false,
+            'force_deactivation' => false,
+        ),
 
     );
 

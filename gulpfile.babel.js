@@ -39,7 +39,7 @@ const paths = {
     dest: "dist/asset/js",
   },
   plugins: {
-    src: ["../../plugins/firsttheme-shortcodes/youplugin/*"],
+    src: ["../../plugins/pre-post-types/**/*"],
     dest: ["lib/plugins"],
   },
   other: {
@@ -158,6 +158,13 @@ export const compress = () => {
       .pipe(zip(`${info.name}.zip`))
       .pipe(gulp.dest(paths.package.dest))
   );
+};
+
+export const compressPlugins = () => {
+  return gulp
+    .src(paths.plugins.src)
+    .pipe(zip(`${"pre-post-types"}.zip`))
+    .pipe(gulp.dest(paths.plugins.dest));
 };
 
 export const build = gulp.series(
