@@ -39,7 +39,7 @@ const paths = {
     dest: "dist/asset/js",
   },
   plugins: {
-    src: ["../../plugins/pre-post-types/**/*"],
+    src: ["../../plugins/pre-post-type/**/*"],
     dest: ["lib/plugins"],
   },
   other: {
