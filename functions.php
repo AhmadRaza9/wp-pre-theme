@@ -9,6 +9,13 @@ require_once "lib/navigation.php";
 require_once "lib/include-plugins.php";
 require_once "lib/comment-callback.php";
 
+// add_action('customize_save_after', '_themename_customize_save_after');
+
+// function _themename_customize_save_after()
+// {
+//     flush_rewrite_rules();
+// }
+
 if (!isset($content_width)) {
     $content_width = 800;
 }
