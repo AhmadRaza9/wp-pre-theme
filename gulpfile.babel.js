@@ -11,6 +11,7 @@ import browserSync from "browser-sync";
 import zip from "gulp-zip";
 import replace from "gulp-replace";
 import info from "./package.json";
+import rename from "gulp-rename";
 
 const server = browserSync.create();
 const PRODUCTION = yargs.argv.prod;
@@ -64,6 +65,25 @@ const paths = {
     ],
     dest: "yourtheme",
   },
+  rename: {
+    src: [
+      "archive-_themename-portfolio.php",
+      "single-_themename-portfolio.php",
+      "taxonomy-_themename_skills.php",
+      "taxonomy-_themename_project_type.php",
+    ],
+  },
+};
+
+export const replace_Filenames = () => {
+  return gulp
+    .src(paths.rename.src)
+    .pipe(
+      rename((path) => {
+        path.basename = path.basename.replace("_themename", info.name);
+      })
+    )
+    .pipe(gulp.dest("./"));
 };
 
 export const serve = (done) => {
