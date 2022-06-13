@@ -39,6 +39,7 @@
 - \_themename_page_after_header
 - \_themename_page_before_footer
 - \_themename_page_after_footer
+- \_themename_portfolio_tax is used to show taxonomy tags for portfolio
 
 ### Shortcode
 

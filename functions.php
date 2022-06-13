@@ -84,3 +84,13 @@ function _themename_handle_delete_post()
 }
 
 add_action('init', '_themename_handle_delete_post');
+
+function _themename_show_portfolio_tax()
+{
+    echo '<span class="portfolio-skills">';
+    $portfolio_tax = get_the_terms(get_the_ID(), "skills");
+    echo $portfolio_tax[0]->name;
+    echo '</span>';
+}
+
+add_action('_themename_portfolio_tax', '_themename_show_portfolio_tax');
