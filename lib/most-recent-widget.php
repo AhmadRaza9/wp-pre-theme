@@ -12,6 +12,22 @@ class _themename_Most_Recent_Widget extends WP_Widget
             )
         );
     }
+
+    public function form($instance)
+    {
+        echo "test";
+    }
+
+    public function widget($args, $instance)
+    {
+        var_dump($args);
+        echo "best";
+    }
+
+    public function update($new_instance, $old_instance)
+    {
+
+    }
 }
 
 function _themename_register_most_recent_widget()
