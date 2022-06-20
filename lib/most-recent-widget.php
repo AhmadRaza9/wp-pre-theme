@@ -77,7 +77,34 @@ class _themename_Most_Recent_Widget extends WP_Widget
 
     public function widget($args, $instance)
     {
-        echo "<h2>" . $instance['title'] . "</h2>";
+        echo $args['before_widget'];
+        if (isset($instance['title']) && !empty($instance['title'])) {
+            $title = apply_filters('widget_title', $instance['title']);
+            echo $args['before_title'] . $title . $args['after_title'];
+        }
+
+        $most_recent_query = new WP_Query(
+            array(
+                'ignore_sticky_posts' => true,
+                'post_type' => 'post',
+                'posts_per_page' => isset($instance['post_count']) ? intval($instance['post_count']) : 3,
+                'orderby' => isset($instance['sort_by']) ? _themename_sanitize_sory_by($instance['sort_by']) : 'date',
+            ),
+        );
+
+        if ($most_recent_query->have_posts()) {
+            echo '<div>';
+            while ($most_recent_query->have_posts()) {
+                $most_recent_query->the_post();
+                echo '<div>';
+                echo '<h5><a href="' . esc_url(get_permalink()) . '">' . get_the_title() . '</a></h5>';
+                echo "<h6>" . $instance['include_date'] ? get_the_date() : '' . "</h6>";
+                echo '</div>';
+            }
+            echo '</div>';
+        }
+
+        echo $args['after_widget'];
     }
 
     public function update($new_instance, $old_instance)
