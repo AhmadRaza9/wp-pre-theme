@@ -13,6 +13,8 @@ import replace from "gulp-replace";
 import info from "./package.json";
 import rename from "gulp-rename";
 
+import wpPot from "gulp-wp-pot";
+
 const server = browserSync.create();
 const PRODUCTION = yargs.argv.prod;
 
@@ -73,6 +75,18 @@ const paths = {
       "taxonomy-_themename_project_type.php",
     ],
   },
+};
+
+export const pot = () => {
+  return gulp
+    .src("**/*.php")
+    .pipe(
+      wpPot({
+        domain: "_themename",
+        package: info.name,
+      })
+    )
+    .pipe(gulp.dest(`languages/${info.name}.pot`));
 };
 
 export const replace_Filenames = () => {
