@@ -99,7 +99,9 @@ class _themename_Most_Recent_Widget extends WP_Widget
                 $most_recent_query->the_post();
                 echo '<div>';
                 echo '<h5><a href="' . esc_url(get_permalink()) . '">' . get_the_title() . '</a></h5>';
-                echo "<h6>" . $instance['include_date'] ? get_the_date() : '' . "</h6>";
+                if ($instance['include_date'] === 'on') {
+                    echo "<h6>" . $instance['include_date'] ? get_the_date() : '' . "</h6>";
+                }
                 echo '</div>';
             }
             echo '</div>';
