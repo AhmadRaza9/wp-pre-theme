@@ -16,15 +16,15 @@ $author_website = get_the_author_meta('user_url', $author);
         <div class="o-row__column o-row__column--span-12 o-row__column--span-8@medium">
             <header>
                 <?php echo get_avatar($author, 128); ?>
-                <h1 class="u-margin-top-20"><b><?php echo esc_html($author_display); ?></b></h1>
+                <h1 class="u-margin-top-20"><b><?php echo esc_html($author_display, '_themename'); ?></b></h1>
                 <div class="c-post-author__info">
                 <?php printf(esc_html(_n('Post: %s post', 'Posts: %s posts', $author_posts, '_themename')), number_format_i18n($author_posts));?>
                 <br/>
                 <?php if ($author_website): ?>
-                    Website: <a target="_blank" href="<?php echo esc_url($author_website); ?>"><?php esc_html_e($author_website);?></a>
+                    Website: <a target="_blank" href="<?php echo esc_url($author_website); ?>"><?php echo esc_html($author_website, '_themename'); ?></a>
                 <?php endif;?>
                 </div>
-                <p class="c-post-author__desc">Description: <?php esc_html_e($author_description);?></p>
+                <p class="c-post-author__desc">Description: <?php echo esc_html($author_description, '_themename'); ?></p>
             </header>
         </div>
 

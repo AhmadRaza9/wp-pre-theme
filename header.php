@@ -7,6 +7,7 @@
     <?php wp_head();?>
 </head>
 <body <?php body_class();?>>
+    <?php wp_body_open();?>
     <a class="u-skip-link" href="#main"><?php esc_attr_e('Skip to content', '_themename');?></a>
     <header class="header u-margin-bottom-40" role="banner">
         <div class="c-header">
@@ -16,7 +17,7 @@
                         <?php the_custom_logo();?>
                         <?php else: ?>
                             <a href="<?php echo esc_url(home_url('/')); ?>" class="c-heder__blogname">
-                                <?php esc_html__(bloginfo('name'));?>
+                                <?php echo esc_html(bloginfo('name'), '_themename'); ?>
                             </a>
                             <?php endif;?>
                 </div>
@@ -25,7 +26,7 @@
         </div>
         <div class="c-navigation">
             <div class="o-container">
-                <nav class="header-nav" role="navigation" aria-label="<?php esc_html_e('Main Navigation', '_themename')?>">
+                <nav class="header-nav" role="navigation" aria-label="<?php echo esc_html('Main Navigation', '_themename') ?>">
                     <?php wp_nav_menu(array('theme_location' => 'main-menu'));?>
                 </nav>
             </div>

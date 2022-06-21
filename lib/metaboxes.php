@@ -4,7 +4,7 @@ function _themename_add_meta_box()
 {
     add_meta_box(
         '_themename_post_metabox',
-        esc_html__('Post Settings'),
+        esc_html__('Post Settings', '_themename'),
         '_themename_post_metabox_html',
         'post',
         'normal',
