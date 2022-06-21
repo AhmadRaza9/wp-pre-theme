@@ -3,22 +3,28 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: firsttheme\n"
+"POT-Creation-Date: 2022-06-21 07:55+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-06-21 07:55+0000\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 3.1\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: 404.php:6
 msgid "Nothing found here, maybe you can try to search?"
 msgstr ""
 
-#: archive-portfolio.php:31, single-portfolio.php:23, taxonomy-project_type.php:28, taxonomy-skills.php:28
+#: archive-portfolio.php:31, single-portfolio.php:23,
+#: taxonomy-project_type.php:28, taxonomy-skills.php:28
 msgid "Sorry, no posts matched your criteria."
 msgstr ""
 
@@ -129,7 +135,7 @@ msgstr ""
 
 #: lib/helpers.php:23
 msgid "Read More <span class=\"u-screen-reader-text\"> About %s </span>"
-msgstr ""
+msgstr "Leia mais <span class=\"u-screen-reader-text\"> sobre %s </span>"
 
 #: lib/helpers.php:43
 msgid "Delete Post"

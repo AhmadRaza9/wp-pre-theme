@@ -10,6 +10,13 @@ require_once "lib/include-plugins.php";
 require_once "lib/comment-callback.php";
 require_once "lib/most-recent-widget.php";
 
+function _themename_load_textdomain()
+{
+    load_theme_textdomain('_themename', get_template_directory() . '/languages');
+}
+
+add_action('after_setup_theme', '_themename_load_textdomain');
+
 // add_action('customize_save_after', '_themename_customize_save_after');
 
 // function _themename_customize_save_after()

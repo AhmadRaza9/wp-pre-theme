@@ -204,7 +204,7 @@ export const compressPlugins = () => {
 export const build = gulp.series(
   clean,
   gulp.parallel(styles, scripts, copy),
-  copyPlugins
+  pot
 );
 
 export const dev = gulp.series(
